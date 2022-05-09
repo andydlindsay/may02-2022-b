@@ -11,3 +11,10 @@
 * Make the test(s) pass, then refactor your code to fix any `eslint` errors/warnings
 * Google for syntax!
 * If you wonder "is there a problem with the test or a problem with my code?"... there's a problem with your code :)
+
+
+red
+green
+fearless refactor
+
+use for..of with everything except objects because Of and Object both start with "O"

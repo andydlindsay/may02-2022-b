@@ -6,6 +6,9 @@
  *        - The formula is:
  *
  *          stdev = sqrt(sum((x - populationMean)^2)/numberOfValues)
+ * 
+ *          area = length * width
+ *          area = Pi * r^2
  *
  *        - you are allowed to look at Wikipedia's example calculation to help you understand the formula
  *        - Keep in mind, we are using 'Population Standard Deviation' as opposed to 'Sample Standard Deviation' for this test
@@ -22,6 +25,8 @@
  *
  *    2.67
  */
+const q0funcs = require('./q0');
+const sum = q0funcs.sum;
 
 // This function is to be used by stdev. Do not alter.
 const round = function(number) {
@@ -29,7 +34,46 @@ const round = function(number) {
 };
 
 const stdev = function(arr) {
+  // sqrt(sum((element - populationMean)^2)/numberOfValues)
+  const numberOfValues = arr.length;
 
+  const populationMean = sum(arr) / numberOfValues;
+
+  // const differences = [];
+
+  // for (const element of arr) {
+  //   const difference = element - populationMean;
+  //   differences.push(difference);
+  // }
+
+  const differences = arr.map((element) => {
+    return element - populationMean;
+  });
+
+  // console.log(arr);
+  // console.log(populationMean);
+  // console.log(differences);
+
+  // const squares = [];
+
+  // for (const difference of differences) {
+  //   const square = Math.pow(difference, 2);
+  //   squares.push(square);
+  // }
+
+  const squares = differences.map((difference) => {
+    return Math.pow(difference, 2);
+  });
+
+  // console.log(squares);
+
+  const squareSum = sum(squares);
+
+  const squareAvg = squareSum / numberOfValues;
+
+  const squareRoot = Math.sqrt(squareAvg);
+
+  return round(squareRoot);
 };
 
 // Don't change below:

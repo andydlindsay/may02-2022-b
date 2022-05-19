@@ -64,13 +64,6 @@
 * Selectors are always plural (eg. `/resources`, `/users`)
 * Actions are always singular (eg. `/login`, `/register`)
 
-### Express Alternatives
-- [Restify (JS)](http://restify.com/)
-- [Koa (JS)](https://koajs.com/)
-- [Hapi (JS)](https://hapi.dev/api/?v=19.0.5)
-- [Sinatra (Ruby)](http://sinatrarb.com/documentation.html)
-- [Django (Python)](https://www.djangoproject.com/)
-
 ### More HTTP Methods
 - We have more [*verbs*](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) available to us than just `GET` and `POST`
 - Popular ones are `PUT`, `PATCH`, and `DELETE`

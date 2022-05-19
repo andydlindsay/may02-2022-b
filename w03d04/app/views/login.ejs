@@ -12,7 +12,7 @@
     <h1 class="heading">Welcome Back!</h1>
     <p>First time here? <a href="/register">Register!</a></p>
 
-    <form method="POST" action="/login">
+    <form method="POST" action="/login?_method=PATCH">
       <h3>Login Form</h3>
       <div class="input-group">
         <label for="email">Email</label>
@@ -20,7 +20,7 @@
       </div>
       <div class="input-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required />
+        <input type="text" id="password" name="password" required />
       </div>
       <br/>
       <button type="submit">Login</button>

@@ -1,6 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
+const bcrypt = require('bcryptjs');
+const methodOverride = require('method-override');
 
 const app = express();
 const port = 8000;
@@ -41,7 +44,12 @@ app.set('view engine', 'ejs');
 // middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
-app.use(cookieParser());
+// app.use(cookieParser());
+app.use(cookieSession({
+  name: 'sesh',
+  keys: ['my', 'secret', 'strings'],
+}));
+app.use(methodOverride('_method'));
 
 // routes
 
@@ -51,18 +59,20 @@ app.get('/register', (req, res) => {
 });
 
 // GET /login
-app.get('/login', (req, res) => {
+app.patch('/login', (req, res) => {
   res.render('login');
 });
 
 // GET /protected
 app.get('/protected', (req, res) => {
   // check for a cookie
-  if (!req.cookies.userId) {
+  if (!req.session.userId) {
+  // if (!req.cookies.userId) {
     return res.status(401).send('not authorized');
   }
 
-  const user = users[req.cookies.userId];
+  // const user = users[req.cookies.userId];
+  const user = users[req.session.userId];
 
   res.render('protected', { user });
 });
@@ -85,10 +95,14 @@ app.post('/register', (req, res) => {
 
   // create a new user object
   const id = generateRandomId();
+
+  const salt = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync(password, salt);
+
   const newUser = {
     id,
     email,
-    password
+    password: hash
   };
 
   // update users database
@@ -116,19 +130,25 @@ app.post('/login', (req, res) => {
   }
 
   // check if passwords match
-  if (user.password !== password) {
+  // const result = bcrypt.compareSync(password, user.password);
+  // if (!result) {
+  if (!bcrypt.compareSync(password, user.password)) {
+  // if (user.password !== password) {
     return res.status(401).send('Password is incorrect');
   }
 
   // set cookie and redirect to protected page
-  res.cookie('userId', user.id);
+  req.session.userId = user.id;
+  req.session.anotherKey = 'some value';
+  // res.cookie('userId', user.id);
 
   res.redirect('/protected');
 });
 
 // POST /logout
 app.post('/logout', (req, res) => {
-  res.clearCookie('userId');
+  // res.clearCookie('userId');
+  req.session = null;
 
   res.redirect('/login');
 });

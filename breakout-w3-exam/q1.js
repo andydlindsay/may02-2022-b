@@ -21,7 +21,33 @@ Examples:
 */
 
 const arrayToObject = function(arr) {
+  // create an output object
+  // const output = {};
 
+  // // iterate over the provided array
+  // for (const pairArray of arr) {
+  //   // "pull" the key and value out of the subarray
+  //   const key = pairArray[0];
+  //   const value = pairArray[1];
+
+  //   // console.log('key/value', key, value);
+  //   // add the key/value pair to the output object
+  //   output[key] = value;
+  // }
+
+  // // return the output object
+  // return output;
+
+  const output = arr.reduce((output, pairArray) => {
+    const key = pairArray[0];
+    const value = pairArray[1];
+
+    output[key] = value;
+    
+    return output;
+  }, {});
+
+  return output;
 };
 
 // Don't change below:

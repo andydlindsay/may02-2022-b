@@ -19,7 +19,26 @@ Examples:
 */
 
 const partition = function(arr, callback) {
+  // create the left and right arrays
+  const left = [];
+  const right = [];
 
+  // loop through the provided array
+  for (const element of arr) {
+    // call the callback for each element; capture the return value
+    const returnVal = callback(element);
+
+    // if return value is true, add element to left array
+    if (returnVal) {
+      left.push(element);
+    } else {
+      // if return value is false, add element to right array
+      right.push(element);
+    }
+  }
+
+  // return an array containing left and right
+  return [left, right];
 };
 
 // Don't change below:

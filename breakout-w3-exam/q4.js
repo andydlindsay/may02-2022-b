@@ -23,12 +23,29 @@ Examples:
 - filesize(1000000)  => "1MB"
 - filesize(1500000)  => "1.5MB"
 - filesize(1250000000) => "1.25GB"
-- filesize(9000000000000) => "9TB"
+- filesize(90000000000000000000) => "900000TB"
 
 */
 
 const filesize = function(bytes) {
+  // put together an array of all possible "sizes" in order
+  const sizes = ['B', 'kB', 'MB', 'GB'];
 
+  // iterate through the sizes array
+  for (const size of sizes) {
+    // is the bytes value less than a thousand
+    if (bytes < 1000) {
+      // if yes, return the current value for bytes + the current size
+      return `${bytes}${size}`;
+    }
+
+    // if no, divide bytes by a thousand
+    // bytes = bytes / 1000;
+    bytes /= 1000;
+  }
+
+  // did we run out of "sizes", then return TB
+  return `${bytes}TB`;
 };
 
 // Don't change below:

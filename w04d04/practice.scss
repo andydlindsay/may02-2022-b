@@ -1,0 +1,57 @@
+@import 'variables';
+
+// <div class="heading">
+//   <div>
+//     <p>Hello world</p>
+//   </div>
+// </div>
+
+.heading {
+  background-color: $background-color;
+  color: $font-color;
+  border: $border;
+  width: $default-width;
+
+  &:hover {
+    box-shadow: 10px;
+  }
+
+  div {
+    color: yellow;
+    font-size: 24px;
+
+    &:hover {
+      color: pink;
+    }
+
+    p {
+      font-size: 10px;
+    }
+  }
+}
+
+%content {
+  color: papayawhip;
+  width: 200px;
+}
+
+.another-style {
+  @extend %content;
+
+  font-size: 24px;
+}
+
+@mixin p-styles($n, $b) {
+  font-size: $n;
+  width: 2 * $n;
+  height: 2 * $n;
+  text-decoration: underline;
+  // border-color: $b;
+  border: 2px solid $b;
+}
+
+p {
+  @include p-styles(25px, yellow);
+
+  color: tan;
+}

@@ -7,3 +7,5 @@
 * [W03D04 - Security & Real World HTTP Servers](/w03d04)
 * [BREAKOUT - Week 3 Exam Review](/breakout-w3-exam)
 * [W04D04 - Responsive Design and SASS](/w04d04)
+* [W05D05 - Mid-term Project Kickoff](/w05d05)
+* [BREAKOUT - Express Router](/breakout-express-router)

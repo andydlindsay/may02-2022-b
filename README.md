@@ -9,3 +9,4 @@
 * [W04D04 - Responsive Design and SASS](/w04d04)
 * [W05D05 - Mid-term Project Kickoff](/w05d05)
 * [BREAKOUT - Express Router](/breakout-express-router)
+* [W07D03 - Immutable Update Patterns](/w07d03)

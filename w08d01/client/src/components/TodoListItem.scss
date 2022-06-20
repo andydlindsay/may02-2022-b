@@ -1,0 +1,9 @@
+$primary: turquoise;
+$secondary: fuchsia;
+
+.todolistitem {
+  border: 2px solid $secondary;
+  color: $primary;
+  padding: 20px;
+  border-radius: 15px;
+}

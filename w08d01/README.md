@@ -1,15 +1,18 @@
-# W08D01 - React Review
+# W08D01 - Bootcamp Review
 
 ### To Do
-- [ ] Build a Todo app
-- [ ] Create the Express server
-- [ ] Test the Express server with Postman
-- [ ] Create the React application
-- [ ] Make requests to Express from React
+- [x] Build a Todo app
+- [x] Create the Express server
+- [x] Test the Express server with Postman
+- [x] Create the React application
+- [x] Make requests to Express from React
 
+CRUD app
 
-
-
+- App - state
+  - TodoList
+    - TodoListItem
+  - TodoForm
 
 
 

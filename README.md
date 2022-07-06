@@ -16,4 +16,4 @@
 * [W08D03 - End-to-End Testing with Cypress](/w08d03)
 * [W08D05 - Intro to Ruby](/w08d05)
 * [W10D01 - Rails Review](/w10d01)
-* [ADVANCED - ???](/w10d03)
+* [ADVANCED - Intro to TypeScript](/w10d03)

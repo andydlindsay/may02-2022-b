@@ -1,0 +1,11 @@
+"use strict";
+// console.log('hello');
+let username = 'Alice';
+username = 'Bob';
+username = 42;
+// username = true;
+const numbers = [];
+numbers.push(1);
+numbers.push('hello');
+const val = numbers.pop();
+// numbers.push(true);
